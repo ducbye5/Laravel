@@ -1,0 +1,160 @@
+body{
+	font-size: 14px;
+	margin: 0px;
+	padding: 0px;
+}
+.container-fluid{
+	padding: 0px
+}
+.middle-bg{
+	background-color: #DDD8;
+}
+.cl-white{
+	color: white;
+}
+.cl-red{
+	color: red;
+}
+.cl-blue{
+	color: blue;
+}
+.cl-green{
+	color: green;
+}
+.cl-DFD8D8{
+	color: #DFD8D8;
+}
+.f-size-3{
+	font-size: 10px;
+}
+.modal-header a{
+	outline: none;
+}
+a:focus{
+	outline: none
+}
+
+
+/*   header   */
+.header{
+	background-color: white;
+	box-shadow: 5px;
+}
+#header-menu ul{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	text-align: center;
+	overflow: hidden;
+	width: 100%;
+}
+#header-menu li{
+	line-height: 40px;
+	width: 20%;
+	float: left;
+	position: relative;
+}
+#header-menu a{
+	text-decoration: none;
+	color: black;
+	display: block;
+}
+#header-menu a:hover{
+	background-color: #373636;
+	color: white;
+}
+.header-menu{
+	display: none;
+}
+.header-menu li{
+	position: absolute;
+	width: 100% !important;
+	z-index: 999 !important;
+}
+#header-menu li:hover .header-menu{
+	display: block;
+}
+.header-right a{
+	text-decoration: none;
+	color: black;
+}
+.header-right a:hover{
+	color: green;
+	text-decoration: underline
+}
+
+
+/*section*/
+section{
+	background-color:#F3F2F2 ;
+	
+}
+.section-left{
+	
+}
+.section-right{
+	
+}
+.table tr td{
+	text-align: center;
+	padding: 0px
+}
+.boxtime{
+	font-size: 20px;
+	line-height: 30px;
+	border: 1px solid black;
+	width: 155px;
+	text-align: center;
+	color: red;
+}
+/*footer*/
+
+
+
+/*scroll*/
+.scrollTop {
+  position: fixed;
+  right: 5%;
+  bottom: 50px;
+  background-color: black;
+  padding: 10px;
+  opacity: 0;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.scrollTop a {
+  font-size: 30px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.scrollTop a:hover{
+	text-decoration: none;
+}
+
+/*Time down*/
+
+
+#clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 15px;
+}
+#clockdiv h4{
+	color: black;
+}
+#clockdiv > div{
+	padding: 10px;
+	border-radius: 3px;
+	background: #00BF96;
+	display: inline-block;
+}
+
+#clockdiv div > span{
+	padding: 10px;
+	border-radius: 3px;
+	background: #00816A;
+	display: inline-block;
+}
