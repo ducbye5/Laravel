@@ -11,7 +11,7 @@
 <body>
 <div class="container-fluid">
 	<header>
-		<div class="header">
+		<div class="">
 			<div class="container">
 				<div class="col-md-12">
 					<div class="row mt-4 mb-5">

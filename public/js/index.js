@@ -8,7 +8,7 @@ $(document).ready(function() {
               $(window).scroll(function() {
                 var topPos = $(this).scrollTop();
                 if (topPos > 70) {
-                  $(scrollTop).css("opacity", "1");
+                  $(scrollTop).css("opacity", "0.4");
 
                 } else {
                   $(scrollTop).css("opacity", "0");
@@ -19,12 +19,10 @@ $(document).ready(function() {
                 if(topPos>0)
                 {
                   $('.section-left').css("position","fixed");
-                  //$('.section-center').css("margin-left","229px");
                   $('.section-center').addClass('offset-2');
                 }
                 else{
                   $('.section-left').css("position","static");
-                  //$('.section-center').css("margin-left","0px");
                   $('.section-center').removeClass('offset-2');
                 }
               });
@@ -58,29 +56,32 @@ $(document).ready(function() {
 
 //time down
 
-                  function getTimeRemaining(endtime) {
-                  var t = Date.parse(endtime) - Date.parse(new Date());
-                  var seconds = Math.floor((t / 1000) % 60);
-                  var minutes = Math.floor((t / 1000 / 60) % 60);
-                  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-                  //var days = Math.floor(t / (1000 * 60 * 60 * 24));
-                  return {
-                    'total': t,
-                    //'days': days,
-                    'hours': hours,
-                    'minutes': minutes,
-                    'seconds': seconds
-                  };
-                }
+                  function getTimeRemaining(endtime) 
+                  {
+                    var t = Date.parse(endtime) - Date.parse(new Date());
+                    var seconds = Math.floor((t / 1000) % 60);
+                    var minutes = Math.floor((t / 1000 / 60) % 60);
+                    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                    //var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                    return {
+                      'total': t,
+                      //'days': days,
+                      'hours': hours,
+                      'minutes': minutes,
+                      'seconds': seconds
+                    };
+                  }
 
-                function initializeClock(id, endtime) {
+                function initializeClock(id, endtime) 
+                {
                   var clock = document.getElementById(id);
                   //var daysSpan = clock.querySelector('.days');
                   var hoursSpan = clock.querySelector('.hours');
                   var minutesSpan = clock.querySelector('.minutes');
                   var secondsSpan = clock.querySelector('.seconds');
 
-                  function updateClock() {
+                  function updateClock() 
+                  {
                     var t = getTimeRemaining(endtime);
 
                     //daysSpan.innerHTML = t.days;
@@ -102,7 +103,8 @@ $(document).ready(function() {
                 initializeClock('clockdiv', deadline);
 
 
-//reload
+//slide 
+        
 
 
 

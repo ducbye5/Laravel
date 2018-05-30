@@ -46,13 +46,13 @@ class C_UserRepository implements C_UserRepositoryInterface
 				
 				if($ImageService->hasFile($img) == true)
 				{
-					$image_file=$ImageService->Extension($img);
-					$image_size=$ImageService->Size($img);
+					$image_file=$ImageService->extension($img);
+					$image_size=$ImageService->size($img);
 						if($image_file == true && $image_size == true)
 						{
-							$image_name=$ImageService->Name($img);
+							$image_name=$ImageService->name($img);
 							$url=public_path().'\upload\user';
-							$ImageService->Move($img,$url,$image_name);
+							$ImageService->move($img,$url,$image_name);
 							user::insert(array(
 									'user_img'=>$image_name,
 									'user_username'=>$username,
@@ -70,7 +70,7 @@ class C_UserRepository implements C_UserRepositoryInterface
 						}
 						else
 						{
-							$ImageService->Error();
+							$ImageService->error();
 						}
 				}
 				else
@@ -154,24 +154,24 @@ class C_UserRepository implements C_UserRepositoryInterface
 
 				if($ImageService->hasFile($img) == true)
 				{
-					$image_file=$ImageService->Extension($img);
-					$image_size=$ImageService->Size($img);
+					$image_file=$ImageService->extension($img);
+					$image_size=$ImageService->size($img);
 						if($image_file == true && $image_size == true)
 						{
-							$image_name=$ImageService->Name($img);
-							$url='upload/user';
+							$image_name=$ImageService->name($img);
+							$url=public_path().'upload/user';
 							$url_unlink = 'upload/user/';
-							if($data->user_img !='' && $ImageService->Exist($url_unlink.$data->user_img)==true)
+							if($data->user_img !='' && $ImageService->exist($url_unlink.$data->user_img)==true)
 							{
-								$ImageService->Unlink($url_unlink.$data->user_img);
+								$ImageService->unlink($url_unlink.$data->user_img);
 
 							}
-							$ImageService->Move($img,$url,$image_name);
+							$ImageService->move($img,$url,$image_name);
 							user::where('id','=',$id)->update(['user_img'=>$image_name]);
 						}
 						else
 						{
-							$ImageService->Error();
+							$ImageService->error();
 						}
 				}
 				else
@@ -197,7 +197,7 @@ class C_UserRepository implements C_UserRepositoryInterface
 				$arr=user::where('id','=',$id)->first();
 				\Session::put('user',$arr);
 			}
-			return redirect(url('admin/adminstrator'));
+			return redirect(url('admin/adminstrator/profile/'.$id));
 	}
 	public function delete_user($id)
 	{
@@ -211,9 +211,9 @@ class C_UserRepository implements C_UserRepositoryInterface
 				else
 				{
 					$url_unlink='upload/user/';
-					if($data->user_img !='' && $ImageService->Exist($url_unlink.$data->user_img)==true)
+					if($data->user_img !='' && $ImageService->exist($url_unlink.$data->user_img)==true)
 					{
-						$ImageService->Unlink($url_unlink.$data->user_img);
+						$ImageService->unlink($url_unlink.$data->user_img);
 
 					}
 					user::where('id','=',$id)->delete();

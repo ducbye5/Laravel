@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('bootstrap/css/bootstrap.min.css')); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('icon/pe-icon-7-stroke.css')); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('slide/owl.carousel.min.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('slide/owl.theme.default.min.css')); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/index.css')); ?>">
 
 <!--datatable bootstrap-->
@@ -17,15 +19,16 @@
 	<script src="<?php echo e(asset('bootstrap/js/jquery.min.js')); ?>"></script>
 	<script src="<?php echo e(asset('bootstrap/js/popper.min.js')); ?>"></script>
 	<script src="<?php echo e(asset('bootstrap/js/bootstrap.min.js')); ?>"></script>
+	<script src="<?php echo e(asset('slide/owl.carousel.min.js')); ?>"></script>
 	<script src="<?php echo e(asset('js/index.js')); ?>"></script>
 
 
 </head>
 <body>
-<header class="w-100 header">
+<header class="w-100 header fixed-top">
 	<div class="container-fluid">
 
-		<div class="col-md-10 offset-1">
+		<div class="col-md-10 offset-1 header-content">
 			<div class="row mt-4 mb-3">
 				<div class="col-md-2 header-left">
 					<a href="<?php echo e(url('index/')); ?>">
@@ -33,6 +36,7 @@
 					</a>
 				</div>
 				<div class="col-md-8 header-center" id="header-menu">
+					<!--
 					<ul>
 						<li>
 							<a>Khóa học</a>
@@ -88,7 +92,7 @@
 						<li>
 							<a href="">Liên Hệ</a>
 						</li>
-					</ul>
+					</ul>-->
 				</div>
 				<div class="col-md-2 header-right text-right">
 					<div class="mt-2">
@@ -97,91 +101,6 @@
 					</div>
 				</div>
 			</div>
-			<!--Form login-->
-			<div class="modal fade" id="login">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-
-			      <!-- Modal Header -->
-			      <div class="modal-header">
-			        <h4 class="modal-title">Login</h4>
-			        <a href="" class="close" data-dismiss="modal">&times;</a>
-			      </div>
-
-			      <!-- Modal body -->
-			      <div class="modal-body">
-			        <form method="post" action="" >
-			        	<?php echo e(csrf_field()); ?>
-
-			        	<div class="form-group mt-3">
-			        		<label class="form-control-label">Username</label>
-			        		<input type="text" name="username" class="form-control" placeholder="Username" required>
-			        	</div>
-			        	<div class="form-group mt-3">
-			        		<label class="form-control-label">Password</label>
-			        		<input type="password" name="password" class="form-control" placeholder="Password" required>
-			        	</div>
-			        	<div class="form-group mt-3">
-			        		<input type="submit" value="Login" class="btn btn-primary">
-			        		<input type="button" value="Register" class="btn btn-success" data-toggle="modal" data-target="#register" data-dismiss="modal">
-			        		<input type="button" value="close" class="btn btn-danger" data-dismiss="modal">
-			        	</div>
-			        </form>
-			      </div>
-
-			    </div>
-			  </div>
-			</div>
-			<!--Form register-->
-			<div class="modal fade" id="register">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-
-			      <!-- Modal Header -->
-			      <div class="modal-header">
-			        <h4 class="modal-title">Register</h4>
-			        <a href="" class="close" data-dismiss="modal">&times;</a>
-			      </div>
-
-			      <!-- Modal body -->
-			      <div class="modal-body">
-			        <form method="post" action="">
-			        	<?php echo e(csrf_field()); ?>
-
-			        	<div class="form-group">
-			        		<label class="form-control-label">Fullname</label>
-			        		<input type="text" name="fullname" class="form-control" placeholder="Fullname" required>
-			        	</div>
-			        	<div class="form-group mt-3">
-			        		<input type="radio" name="sex" value="man" checked> Man
-			        		<input type="radio" name="sex" value="woman"> Woman
-			        	</div>
-			        	<div class="form-group mt-3">
-			        		<label class="form-control-label">Birthday</label>
-			        		<input type="date" name="date" class="form-control">
-			        	</div>
-			        	<div class="form-group mt-3">
-			        		<label class="form-control-label">Email</label>
-			        		<input type="email" name="email" class="form-control" placeholder="Email" required>
-			        	</div>
-			        	<div class="form-group mt-3">
-			        		<label class="form-control-label">Username</label>
-			        		<input type="text" name="username" class="form-control" placeholder="Username" required>
-			        	</div>
-			        	<div class="form-group mt-3">
-			        		<label class="form-control-label">Password</label>
-			        		<input type="password" name="password" class="form-control" placeholder="Password" required>
-			        	</div>
-			        	<div class="form-group mt-3">
-			        		<input type="submit" value="Register" class="btn btn-primary">
-			        		<input type="button" value="Close" class="btn btn-danger" data-dismiss="modal">
-			        	</div>
-			        </form>
-			      </div>
-
-			    </div>
-			  </div>
-			</div>
 		</div>
 
 	</div>
@@ -189,14 +108,15 @@
 <section class="w-100 middle-bg">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-9 pl-0 pr-0">
-				a
+			<div class="col-md-6">
+				<img src="<?php echo e(asset(url('image/images.jpg'))); ?>" width="100%" height="379">
 			</div>
-			<div class="col-md-3 pl-0 pr-0">
-				b
+			<div class="col-md-6">
+				<img src="<?php echo e(asset(url('image/Toeic-Speaking-Bai-2-P-1-mo-ta-tranh-01.jpg'))); ?>" width="100%" height="379">
 			</div>
+			<!--
 			<div class="col-md-12 pl-0 pr-0">
-			<table id="example" class="table table-striped table-bordered cell-border" style="width:100%">
+				<table id="example" class="table table-striped table-bordered cell-border" style="width:100%">
 		        <thead>
 		            <tr>
 		                <th>Name</th>
@@ -325,11 +245,174 @@
 		                <th>Salary</th>
 		            </tr>
 		        </tfoot>
-		    </table>
+		    	</table>
+			</div>
+			-->
+			<div class="col-md-12">
+				<fieldset class="form-control mt-5 text-center">
+					<legend class="form-control text-center bg-light">Chúng tôi có gì để giúp bạn phát triển , nâng cao trình độ Tiếng Anh . Đạt 900 Toeic không khó </legend>
+					<div class="row">
+						<div class="col-md-4 offset-1 alert alert-primary mt-3">
+							Thi thử
+						</div>
+						<div class="col-md-4 offset-2 alert alert-success mt-3">
+							Từ vựng
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 offset-1 alert alert-info mt-3">
+							Ngữ pháp
+						</div>
+						<div class="col-md-4 offset-2 alert alert-danger mt-3">
+							Luyện nghe
+						</div>
+					</div>
+					<div class="row">
+						<a href="" class="col-md-4 offset-4 btn btn-primary" data-toggle="modal" data-target="#login">Đăng nhập ngay để trải nghiệm</a>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="row mt-5">
+			<div class="col-md-6">
+				<img src="<?php echo e(asset(url('image/hoc-cong-nghe-thong-tin.jpg'))); ?>" width="100%" height="225">
+			</div>
+			<div class="col-md-6">
+				<img src="<?php echo e(asset(url('image/tải xuống.jpg'))); ?>" width="100%" height="225">
+			</div>
+			<div class="col-md-10 offset-1 mt-3 alert alert-danger">
+				Bạn muốn học lập trình. Bạn muốn trở thành một developer fontend hay backend . Bạn có thể tìm thấy khá nhiều ở đây đó
+			</div>
+			<div class="col-md-12 mt-3">
+				<fieldset class="form-control">
+					<legend class="form-control bg-light text-center">Frontend</legend>
+					<div class="slide-frontend owl-carousel owl-theme">
+						<div class="col-md-12">
+							<img src="<?php echo e(asset(url('image/htmlvscss.jpg'))); ?>" width="100%" height="130">
+						</div>
+						<div class="col-md-12">
+							<img src="<?php echo e(asset(url('image/php.png'))); ?>" width="100%" height="130">
+						</div>
+						<div class="col-md-12">
+							<img src="<?php echo e(asset(url('image/java.jpg'))); ?>" width="100%" height="130">
+						</div>
+						<div class="col-md-12">
+							<img src="<?php echo e(asset(url('image/angular.jpg'))); ?>" width="100%" height="130">
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<a href="" class="col-md-4 offset-4 btn btn-primary mt-3" data-toggle="modal" data-target="#login">Đăng nhập ngay để trải nghiệm</a>
+			<div class="col-md-12 mt-3">
+				<fieldset class="form-control">
+					<legend class="form-control bg-light text-center">Backend</legend>
+					<div class="slide-backend owl-carousel owl-theme">
+						<div class="col-md-12">
+							<img src="<?php echo e(asset(url('image/dotnet.png'))); ?>" width="100%" height="130">
+						</div>
+						<div class="col-md-12">
+							<img src="<?php echo e(asset(url('image/php.png'))); ?>" width="100%" height="130">
+						</div>
+						<div class="col-md-12">
+							<img src="<?php echo e(asset(url('image/java.jpg'))); ?>" width="100%" height="130">
+						</div>
+						<div class="col-md-12">
+							<img src="<?php echo e(asset(url('image/nodejs.jpg'))); ?>" width="100%" height="130">
+						</div>
+					</div>
+				</fieldset>
 			</div>
 		</div>
 	</div>
 </section>
+<footer>
+	
+</footer>
+<!--Form login-->
+<div class="modal fade" id="login">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+
+			      <!-- Modal Header -->
+			      <div class="modal-header">
+			        <h4 class="modal-title">Login</h4>
+			        <a href="" class="close" data-dismiss="modal">&times;</a>
+			      </div>
+
+			      <!-- Modal body -->
+			      <div class="modal-body">
+			        <form method="post" action="" >
+			        	<?php echo e(csrf_field()); ?>
+
+			        	<div class="form-group mt-3">
+			        		<label class="form-control-label">Username</label>
+			        		<input type="text" name="username" class="form-control" placeholder="Username" required>
+			        	</div>
+			        	<div class="form-group mt-3">
+			        		<label class="form-control-label">Password</label>
+			        		<input type="password" name="password" class="form-control" placeholder="Password" required>
+			        	</div>
+			        	<div class="form-group mt-3">
+			        		<input type="submit" value="Login" class="btn btn-primary">
+			        		<input type="button" value="Register" class="btn btn-success" data-toggle="modal" data-target="#register" data-dismiss="modal">
+			        		<input type="button" value="close" class="btn btn-danger" data-dismiss="modal">
+			        	</div>
+			        </form>
+			      </div>
+
+			    </div>
+			  </div>
+</div>
+<!--Form register-->
+<div class="modal fade" id="register">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+
+			      <!-- Modal Header -->
+			      <div class="modal-header">
+			        <h4 class="modal-title">Register</h4>
+			        <a href="" class="close" data-dismiss="modal">&times;</a>
+			      </div>
+
+			      <!-- Modal body -->
+			      <div class="modal-body">
+			        <form method="post" action="">
+			        	<?php echo e(csrf_field()); ?>
+
+			        	<div class="form-group">
+			        		<label class="form-control-label">Fullname</label>
+			        		<input type="text" name="fullname" class="form-control" placeholder="Fullname" required>
+			        	</div>
+			        	<div class="form-group mt-3">
+			        		<input type="radio" name="sex" value="man" checked> Man
+			        		<input type="radio" name="sex" value="woman"> Woman
+			        	</div>
+			        	<div class="form-group mt-3">
+			        		<label class="form-control-label">Birthday</label>
+			        		<input type="date" name="date" class="form-control">
+			        	</div>
+			        	<div class="form-group mt-3">
+			        		<label class="form-control-label">Email</label>
+			        		<input type="email" name="email" class="form-control" placeholder="Email" required>
+			        	</div>
+			        	<div class="form-group mt-3">
+			        		<label class="form-control-label">Username</label>
+			        		<input type="text" name="username" class="form-control" placeholder="Username" required>
+			        	</div>
+			        	<div class="form-group mt-3">
+			        		<label class="form-control-label">Password</label>
+			        		<input type="password" name="password" class="form-control" placeholder="Password" required>
+			        	</div>
+			        	<div class="form-group mt-3">
+			        		<input type="submit" value="Register" class="btn btn-primary">
+			        		<input type="button" value="Close" class="btn btn-danger" data-dismiss="modal">
+			        	</div>
+			        </form>
+			      </div>
+
+			    </div>
+			  </div>
+</div>
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -356,7 +439,55 @@ $(document).ready(function(){
         }
     } );
 } );
-	</script>
+</script>
+<script type="text/javascript">
+	$('.slide-frontend').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            dots: false,
+            autoplay:true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true,
+            navText: ['<span class="pe-7s-angle-left"></span>','<span class="pe-7s-angle-right"></span>'],
+            animateIn: 'fadeIn',
+            animateOut: 'fadeOut',
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:2
+                },
+                1200:{
+                    items:3
+                }
+            }
+          });
+	$('.slide-backend').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            dots: false,
+            autoplay:true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true,
+            navText: ['<span class="pe-7s-angle-left"></span>','<span class="pe-7s-angle-right"></span>'],
+            animateIn: 'fadeIn',
+            animateOut: 'fadeOut',
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:2
+                },
+                1200:{
+                    items:3
+                }
+            }
+          });
+</script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>

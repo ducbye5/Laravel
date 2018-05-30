@@ -16,7 +16,7 @@ class ImageService
 			return false;
 		}
 	}
-	public function Extension($img)
+	public function extension($img)
 	{
 		$image=Request::file($img)->getClientOriginalExtension();
 		if($image == 'jpg' || $image == 'png')
@@ -28,7 +28,7 @@ class ImageService
 			return false;
 		}
 	}
-	public function Size($img)
+	public function size($img)
 	{
 		$image = Request::file($img)->getSize();
 		if($image<=6000000 && $image > 0)
@@ -40,17 +40,17 @@ class ImageService
 			return false;
 		}
 	}
-	public function Name($img)
+	public function name($img)
 	{
 		$image=Request::file($img)->getClientOriginalName();
 		$image=time(0).$image;
 		return $image;
 	}
-	public function Move($img, $url, $image)
+	public function move($img, $url, $image)
 	{
 		return Request::file($img)->move($url,$image);
 	}
-	public function Exist($url)
+	public function exist($url)
 	{
 		if(file_exists($url))
 		{
@@ -61,11 +61,11 @@ class ImageService
 			return false;
 		}
 	}
-	public function Unlink($url)
+	public function unlink($url)
 	{
 		unlink($url);
 	}
-	public function Error()
+	public function error()
 	{
 		echo 'Error';
 	}

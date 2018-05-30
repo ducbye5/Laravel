@@ -18,7 +18,7 @@ class ExcelService
 			return false;
 		}
 	}
-	public function Extension($file)
+	public function extension($file)
 	{
 		$excel=Request::file($file)->getClientOriginalExtension();
 		if($excel == 'xlsx' || $excel == 'xls')
@@ -30,7 +30,7 @@ class ExcelService
 			return false;
 		}
 	}
-	public function Size($file)
+	public function size($file)
 	{
 		$excel = Request::file($file)->getSize();
 		if($excel>0)
@@ -42,17 +42,17 @@ class ExcelService
 			return false;
 		}
 	}
-	public function Name($file)
+	public function name($file)
 	{
 		$excel=Request::file($file)->getClientOriginalName();
 		$excel=time(0).$excel;
 		return $excel;
 	}
-	public function Move($file, $url, $excel)
+	public function move($file, $url, $excel)
 	{
 		return Request::file($file)->move($url,$excel);
 	}
-	public function Exist($url)
+	public function exist($url)
 	{
 		if(file_exists($url))
 		{
@@ -63,11 +63,11 @@ class ExcelService
 			return false;
 		}
 	}
-	public function Unlink($url)
+	public function unlink($url)
 	{
 		unlink($url);
 	}
-	public function Error()
+	public function error()
 	{
 		echo 'Error';
 	}

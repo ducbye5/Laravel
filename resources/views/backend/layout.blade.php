@@ -49,7 +49,7 @@
 			<div class="sidebar-sticky">
 				<div class="text-center">
 					
-					<a href="{{ url('admin/adminstrator/profile/'.$user->user_id) }}"><img src="{!! url('upload/user/'. $user->user_img) !!}" alt="picturel" class="rounded-circle" width="100px" height="100px"></a>
+					<a href="{{ url('admin/adminstrator/profile/'.$user->id) }}"><img src="{!! url('upload/user/'. $user->user_img) !!}" alt="picturel" class="rounded-circle" width="100px" height="100px"></a>
 					<p><i>{{ $user->user_name }}</i></p>
 				</div>
 				<ul class="nav flex-column">

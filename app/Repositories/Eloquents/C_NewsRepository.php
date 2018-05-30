@@ -32,24 +32,24 @@ class C_NewsRepository implements C_NewsRepositoryInterface
 			$img = 'image_news';
 			if($ImageService->hasFile($img) == true)
 			{
-				$image_file=$ImageService->Extension($img);
-				$image_size=$ImageService->Size($img);
+				$image_file=$ImageService->extension($img);
+				$image_size=$ImageService->size($img);
 					if($image_file == true && $image_size == true)
 					{
-						$image_name=$ImageService->Name($img);
-						$url='upload/news';
-						$ImageService->Move($img,$url,$image_name);
+						$image_name=$ImageService->name($img);
+						$url=public_path().'upload/news';
+						$ImageService->move($img,$url,$image_name);
 						tbl_news::insert(array('news_img'=>$image_name,'news_title'=>$title,'news_content'=>$content,'user_id'=>$user_id));
 					}
 					else
 					{
-						$ImageService->Error();
+						$ImageService->error();
 					}
 				
 			}
 			else
 			{
-				$ImageService->Error();
+				$ImageService->error();
 			}
 
 			return redirect(url('admin/news'));
@@ -72,30 +72,30 @@ class C_NewsRepository implements C_NewsRepositoryInterface
 
 			if($ImageService->hasFile($img) == true)
 			{
-				$image_file=$ImageService->Extension($img);
-				$image_size=$ImageService->Size($img);
+				$image_file=$ImageService->extension($img);
+				$image_size=$ImageService->size($img);
 					if($image_size == true && $image_file == true)
 					{
-						$image_name=$ImageService->Name($img);
-						$url='upload/news';
-						$url_unlink='upload/news/';
+						$image_name=$ImageService->name($img);
+						$url=public_path().'upload/news';
+						$url_unlink=public_path().'upload/news/';
 						$data = tbl_news::where('id','=',$id)->select('news_img')->first();
-						if($data->news_img !='' && $ImageService->Exist($url_unlink.$data->news_img)==true)
+						if($data->news_img !='' && $ImageService->exist($url_unlink.$data->news_img)==true)
 						{
-							$ImageService->Unlink($url_unlink.$data->news_img);
+							$ImageService->unlink($url_unlink.$data->news_img);
 
 						}
-						$ImageService->Move($img,$url,$image_name);
+						$ImageService->move($img,$url,$image_name);
 						tbl_news::where('id','=',$id)->update(array('news_img'=>$image_name));
 					}
 					else
 					{
-						$ImageService->Error();
+						$ImageService->error();
 					}
 			}
 			else
 			{
-				$ImageService->Error();
+				$ImageService->error();
 			}
 
 			$data = tbl_news::where('id','=',$id)->first();
@@ -106,11 +106,11 @@ class C_NewsRepository implements C_NewsRepositoryInterface
 	public function delete_news($id)
 	{
 			$ImageService= new ImageService();
-			$url_unlink='upload/news/';
+			$url_unlink=public_path().'upload/news/';
 			$data = tbl_news::where('id','=',$id)->select('news_img')->first();
-			if($data->news_img !='' && ($ImageService->Exist($url_unlink.$data->news_img))==true)
+			if($data->news_img !='' && ($ImageService->exist($url_unlink.$data->news_img))==true)
 			{
-				$ImageService->Unlink($url_unlink.$data->news_img);
+				$ImageService->unlink($url_unlink.$data->news_img);
 			}
 			
 			
