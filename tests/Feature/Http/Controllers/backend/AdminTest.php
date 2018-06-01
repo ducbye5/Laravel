@@ -29,13 +29,13 @@ class AdminTest extends TestCase
     public function testCreateAdmin()
     {
         $create = factory(\App\Model\user::class)->make();
-        //$this->actingAs($create)->withSession(['user' => $create]);
+       // $this->actingAs($create)->withSession(['user' => $create]);
         $data_array = $create->toArray();
         Storage::fake('fake');
         $file = UploadedFile::fake()->image('a.jpg')->size(1000);
         $test = Request::hasFile($file);
         $data = [
-            'user_img'=>$file,
+            //'user_img'=>$file,
             'user_username'=>$data_array['user_username'],
             'user_password'=>$data_array['user_password'],
             'user_fullname'=>$data_array['user_name'],
@@ -62,8 +62,8 @@ class AdminTest extends TestCase
 
     public function testEditAdmin($id)
     {
-        $data_array = \App\Model\user::select('*')->where('id','=',$id)->first();
-        $data_array = $data_array->toArray();
+        $data_obj = \App\Model\user::select('*')->where('id','=',$id)->first();
+        $data_array = $data_obj->toArray();
         $data = [
             'user_username'=>$data_array['user_username'],
             'user_password'=>$data_array['user_password'],
@@ -76,9 +76,9 @@ class AdminTest extends TestCase
             'user_description'=>$data_array['user_description']
         ]; 
         $response = $this->post('admin/adminstrator/edit/'.$id,$data);
-        $response->assertStatus(500);
-        // $response->assertStatus(302);
-        // $response->assertRedirect('admin/adminstrator');
+        //$response->assertStatus(500);
+        $response->assertStatus(302);
+        $response->assertRedirect('admin/adminstrator');
     }
     /**
     *   @testdox Test delete admin with id
