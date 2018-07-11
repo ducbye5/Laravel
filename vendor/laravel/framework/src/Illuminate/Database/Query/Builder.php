@@ -1078,10 +1078,10 @@ class Builder
      *
      * @param  string  $column
      * @param  string  $operator
-     * @param  mixed $value
+     * @param  string  $value
      * @return \Illuminate\Database\Query\Builder|static
      */
-    public function orWhereDate($column, $operator, $value = null)
+    public function orWhereDate($column, $operator, $value)
     {
         list($value, $operator) = $this->prepareValueAndOperator(
             $value, $operator, func_num_args() == 2
@@ -2384,7 +2384,7 @@ class Builder
      * Increment a column's value by a given amount.
      *
      * @param  string  $column
-     * @param  float|int  $amount
+     * @param  int     $amount
      * @param  array   $extra
      * @return int
      */
@@ -2405,7 +2405,7 @@ class Builder
      * Decrement a column's value by a given amount.
      *
      * @param  string  $column
-     * @param  float|int  $amount
+     * @param  int     $amount
      * @param  array   $extra
      * @return int
      */

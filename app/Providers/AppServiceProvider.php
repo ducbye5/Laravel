@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        Schema::defaultStringLength(191);
     }
 
     /**
@@ -23,52 +24,32 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-// Nếu muốn sử dụng file ở Eloquent
+
+                    //Repository
+
+
         $this->app->bind(
-            'App\Repositories\Contracts\C_NewsRepositoryInterface',
-            'App\Repositories\Eloquents\C_NewsRepository'
+            'App\Repositories\Interfaces\UserRepositoryInterface',
+            'App\Repositories\Eloquents\UserRepository'
         );
         $this->app->bind(
-            'App\Repositories\Contracts\C_UserRepositoryInterface',
-            'App\Repositories\Eloquents\C_UserRepository'
+            'App\Repositories\Interfaces\LayoutRepositoryInterface',
+            'App\Repositories\Eloquents\LayoutRepository'
         );
         $this->app->bind(
-            'App\Repositories\Contracts\C_HomeRepositoryInterface',
-            'App\Repositories\Eloquents\C_HomeRepository'
-        );
-        $this->app->bind(
-            'App\Repositories\Contracts\C_ToeicRepositoryInterface',
-            'App\Repositories\Eloquents\C_ToeicRepository'
-        );
-        $this->app->bind(
-            'App\Service\ImageService'
+            'App\Repositories\Interfaces\ProfileRepositoryInterface',
+            'App\Repositories\Eloquents\ProfileRepository'
         );
 
 
 
-
-
-        $this->app->bind(
-            'App\Repositories\Contracts\V_IndexRepositoryInterface',
-            'App\Repositories\Eloquents\V_IndexRepository'
-        );
-        $this->app->bind(
-            'App\Repositories\Contracts\V_LayoutRepositoryInterface',
-            'App\Repositories\Eloquents\V_LayoutRepository'
-        );
-        $this->app->bind(
-            'App\Repositories\Contracts\V_ToeicRepositoryInterface',
-            'App\Repositories\Eloquents\V_ToeicRepository'
-        );
-        $this->app->bind(
-            'App\Repositories\Contracts\V_TestToeicRepositoryInterface',
-            'App\Repositories\Eloquents\V_TestToeicRepository'
-        );
+                    //Validation
         
-// Nếu muốn sử dụng file ở Redis
-        // $this->app->bind(
-        //     'App\Repositories\Contracts\NewsRepositoryInterface',
-        //     'App\Repositories\Redis\RedisNewsRepository'
-        // );
+
+        $this->app->bind(
+            'App\Http\Validations\Interfaces\LoginUserValidationInterface',
+            'App\Http\Validations\LoginUserValidation'
+        );
+
     }
 }

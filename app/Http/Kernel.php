@@ -59,11 +59,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'test' => \App\Http\Middleware\test::class,
-        'check_news' => \App\Http\Middleware\check_news::class,
-        'check_admin_edit' => \App\Http\Middleware\check_admin_edit::class,
-        'check_admin_delete' => \App\Http\Middleware\check_admin_delete::class,
-        'check_admin_add' => \App\Http\Middleware\check_admin_delete::class,
-        'V_index' => \App\Http\Middleware\V_index::class,
+        'Admin' => \App\Http\Middleware\Admin::class,
     ];
 }

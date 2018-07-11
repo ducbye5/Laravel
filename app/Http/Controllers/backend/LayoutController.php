@@ -1,18 +1,23 @@
 <?php
-	namespace App\Http\Controllers\backend;
-	use App\Http\Controllers\Controller;
-	use DB;
-	use Request;
-	use Hash;
 
-	
-	class LayoutController extends Controller
-	{
-		
-		public function layout()
-		{
-			$user=\Session::get('user');
-			return view('backend.layout',['user'=>$user]);
-		}
-	}
-?>
+namespace App\Http\Controllers\Backend;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Services\LayoutService;
+
+class LayoutController extends Controller
+{
+	private $layoutService;
+
+    public function __construct(
+    	LayoutService $layoutService
+    )
+    {
+        $this->layoutService = $layoutService;
+    }
+    public function index()
+    {
+        $result = $this->layoutService->index();
+        return view($result);
+    }
+}

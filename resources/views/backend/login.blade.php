@@ -4,17 +4,18 @@
 	<title>Login</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('icon/pe-icon-7-stroke.css') }}">
-	<script src="{{ asset('bootstrap/js/jquery.min.js') }}"></script>
-	<script src="{{ asset('bootstrap/js/popper.min.js') }}"></script>
-	<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('assets/js/vendor/jquery-2.1.4.min.js') }}"></script>
+    <script src="{{ asset('assets/js/vendor/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 </head>
 <body>
 <div class="container">
 	<div class="row justify-content-center mt-5">
 		<div class="col-6">
-			<form method="post" action="" class="form-control bg-light">
+			<form method="post" action="{{ url('login') }}" class="form-control bg-light">
 				{{ csrf_field() }}
 				<div class="input-group mt-3">
 					<div class="input-group-prepend">
@@ -22,7 +23,7 @@
 							<span class="pe-7s-user"></span>
 						</i>
 					</div>
-					<input type="text" name="username" class="form-control" aria-describedby="icon_user" placeholder="username" required>
+					<input type="email" name="email" class="form-control" aria-describedby="icon_user" placeholder="Email" required>
 				</div>
 				<div class="input-group mt-3">
 					<div class="input-group-prepend">

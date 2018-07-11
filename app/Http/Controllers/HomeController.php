@@ -1,30 +1,33 @@
 <?php
-	namespace App\Http\Controllers;
-	use App\Http\Controllers\Controller;
-	use App\Repositories\Contracts\C_HomeRepositoryInterface;
-	
-	class HomeController extends Controller
-	{
-		
-		protected $C_HomeRepository;
-		public function __construct(C_HomeRepositoryInterface $C_HomeRepository)
-		{
-			$this->C_HomeRepository = $C_HomeRepository;
-		}
+namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
+use App\Services\HomeService;
+use App\Http\Requests\LoginUserRequest;
+    
+    class HomeController extends Controller
+    {
+        
+        protected $homeService;
+        public function __construct(HomeService $homeService)
+        {
+            $this->homeService = $homeService;
+        }
 
-		public function viewlogin(){
-			$url = $this->C_HomeRepository->viewlogin();
-			return $url;
-		}
-		public function login()
-		{
-			$url = $this->C_HomeRepository->login();
-			return $url;
-		}
-		public function logout()
-		{
-			$url = $this->C_HomeRepository->logout();
-			return $url;
-		}
-	}
+        public function viewLogin()
+        {
+            $view = $this->homeService->viewlogin();
+            return view($view);
+        }
+        public function login(LoginUserRequest $request)
+        {
+            $input = $request->all();
+            $url = $this->homeService->login($input);
+            return redirect($url);
+        }
+        public function logout()
+        {
+            $url = $this->homeService->logout();
+            return redirect($url);
+        }
+    }
 ?>
